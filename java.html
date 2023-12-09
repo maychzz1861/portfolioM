@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+  
+    body,
+    html {
+      height: 100%;
+      line-height: 1.8;
+      background-image: url('picture/gg1.gif'); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      font-family: "Raleway", sans-serif;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .card {
+    border: 1px solid #7270708b;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 30px auto; 
+    background-color: rgba(236, 224, 224, 0.717);
+    font-family: Arial, sans-serif;
+    text-align: center; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    position: relative;
+  }
+  </style>
+</head>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="navbar">
+  <div class="navbar-logo">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+  </div>
+  <!-- Right-sided navbar links -->
+  <div class="navbar-links">
+    <a href="about.html"><i class="fas fa-info-circle"></i> ABOUT</a>
+    <a href="java.html"><i class="fas fa-users"></i> JAVA</a>
+    <a href="api.html"><i class="fas fa-briefcase"></i> API</a>
+    <a href="photos.html"><i class="fas fa-image"></i> PHOTOS</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> CONTACT</a>
+  </div>
+</div>
+<div class="card">
+    <div class="content">
+  <h1>LAB</h1>
+
+  <hr>
+  <h2>สุ่มตัวเลขลูกเต๋า</h2>
+  <button onclick="rollAndDisplayDice()">ทอยลูกเต๋า</button>
+  <p id="diceResult"></p>
+
+  <hr>
+  <h2>แปลงตัวอักษรตัวแรกของ str ให้เป็นตัวพิมพ์ใหญ่ส่วนตัวอักษรที่เหลือให้มีขนาดเหมือนเดิม</h2>
+    <p>
+        <label for="inputText">ก่อนแปลง: </label>
+        <input type="text" id="inputText">
+        <button onclick="showModifiedString()">แปลง</button>
+      </p>
+      
+      <p>หลังแปลง = <span id="modifiedString" class="output-box"></span></p>
+  <hr>
+  <input type="number" id="inputDays" style="width: 150px; height: 28px;" placeholder="จำนวนวัน">
+  <button onclick="calculateSeconds()">คำนวณเป็นวินาที</button>
+  <p id="resultInSeconds"></p>
+  
+  
+  <hr>
+  <h2>คำนวณแต้มจากยอดซื้อขายโดยเฉพาะทุกยอดซื้อ100บาทจะได้1แต้ม</h2>
+  <input type="number" id="newTotalSales"  style="width: 150px; height: 28px;" placeholder="กรอกยอดซื้อขาย (บาท)">
+  <button onclick="updatePoints()">อัปเดตคะแนน</button>
+  <p>ยอดซื้อขาย: <span id="totalSales">360</span> บาท</p>
+  <p>จำนวนคะแนนที่ได้: <span id="loyaltyPoints">3</span> คะแนน</p>
+
+
+<hr>
+<h2>หาความยาวเส้นรอบวงของวงกลม</h2>
+<button onclick="calculate()">คำนวณความยาว</button>
+<p id="result"></p>
+<hr>
+  <!-- End page content -->
+</div>
+
+<!-- Footer -->
+
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<hr>
+<canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+<script>
+  //
+   function rollDice() {
+    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    return randomNumber;
+  }
+
+  function rollAndDisplayDice() {
+    const result = rollDice();
+    document.getElementById("diceResult").innerHTML = `ผลลูกเต๋า: ${result}`;
+  }
+
+
+
+
+  function daysToSeconds(days) {
+  const secondsInMinute = 60;
+  const minutesInHour = 60;
+  const hoursInDay = 24;
+
+  const seconds = days * hoursInDay * minutesInHour * secondsInMinute;
+
+  return seconds;
+}
+
+//
+function calculateSeconds() {
+  const days = document.getElementById("inputDays").value;
+  let text;
+
+  if (isNaN(days) || days < 1) {
+    text = "ป้อนค่าไม่ถูกต้อง";
+  } else {
+    const seconds = daysToSeconds(days);
+    text = `จำนวนวินาทีที่เท่ากับ ${seconds} วินาที`;
+  }
+
+  document.getElementById("resultInSeconds").innerText = text;
+}
+
+
+
+//
+function calculateLoyaltyPoints(totalSales) {
+  let points = totalSales / 100;
+  points = Math.floor(points);
+  return points;
+}
+
+function updatePoints() {
+  const newTotalSales = document.getElementById("newTotalSales").value;
+  const newPoints = calculateLoyaltyPoints(parseInt(newTotalSales));
+
+  if (!isNaN(newPoints)) {
+    document.getElementById("totalSales").innerText = newTotalSales;
+    document.getElementById("loyaltyPoints").innerText = newPoints;
+  } else {
+    alert("โปรดกรอกตัวเลขที่ถูกต้อง");
+  }
+}
+
+
+//
+  function calculateCircleLength(radius) {
+    var PI = Math.PI;
+    var circleLength = PI * 2 * radius;
+    return circleLength;
+  }
+
+  function calculateCircleLength(radius) {
+    var PI = Math.PI;
+    var circleLength = PI * 2 * radius;
+    return circleLength;
+  }
+
+  function calculate() {
+    var radius = prompt("กรุณาใส่ค่ารัศมีของวงกลม:");
+
+    if (radius !== null && radius !== "") {
+      radius = parseInt(radius);
+
+      if (!isNaN(radius)) {
+        var length = calculateCircleLength(radius);
+        document.getElementById("result").innerText = "ความยาวเส้นรอบวงของวงกลมที่มีรัศมี " + radius + " คือ " + length;
+      } else {
+        alert("โปรดกรอกรัศมีของวงกลมให้ถูกต้อง");
+      }
+    }
+  }
+
+
+
+  
+//
+  const catHeightData = [
+  {age: 1, siamese: 3, persian: 4},
+  {age: 2, siamese: 4, persian: 5},
+  {age: 3, siamese: 5, persian: 6},
+];
+
+new Chart("myChart", {
+  type: "scatter",
+  data: {
+    datasets: [
+      {
+        label: 'Siamese Cat Height',
+        pointRadius: 4,
+        pointBackgroundColor: "rgb(255,0,0)", // เปลี่ยนสีตามที่ต้องการ
+        data: catHeightData.map(item => ({x: item.age, y: item.siamese}))
+      },
+      {
+        label: 'Persian Cat Height',
+        pointRadius: 4,
+        pointBackgroundColor: "rgb(0,0,255)", // เปลี่ยนสีตามที่ต้องการ
+        data: catHeightData.map(item => ({x: item.age, y: item.persian}))
+      }
+    ]
+  },
+  options: {
+    scales: {
+      xAxes: [{ticks: {min: 0, max: 5}}],
+      yAxes: [{ticks: {min: 0, max: 8}}],
+    }
+  }
+});
+
+
+//
+const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart2", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+
+
+</script>
+
+</body>
+</html>

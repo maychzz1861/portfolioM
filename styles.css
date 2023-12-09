@@ -1,0 +1,326 @@
+.preformatted-css {
+  white-space: pre;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .navbar {
+    background: linear-gradient(to right, #ff9999, #66ccff); /* ใช้ linear-gradient ในการไล่เฉดสี */
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+  
+  .navbar a {
+    text-decoration: none;
+    color: inherit;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .navbar-toggle {
+    display: none;
+  }
+  
+  .sidebar {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+
+  .navbar a i {
+    margin-right: 5px;
+  }
+  
+
+  @media screen and (max-width: 768px) {
+    .navbar-links {
+      display: none;
+    }
+  
+    .navbar-toggle {
+      display: block;
+    }
+  
+    .sidebar {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+  
+    .sidebar a {
+      display: block;
+      padding: 15px 0;
+      border-bottom: 3px solid #fff;
+    }
+  }
+  
+
+  .slideshow-container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .mySlides {
+    position: relative;
+    text-align: center;
+  }
+  
+  .mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+  
+  .slideshow-container {
+    position: relative;
+    max-width: 1120px;
+    
+    margin: 10px auto;
+    overflow: hidden;
+    border-radius: 8px; 
+    box-shadow: 0 50px 100px 0 rgba(0, 0, 0, 0.804); 
+}
+
+.mySlides {
+    display: none;
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-size: 50px;
+  
+}
+
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active {
+    background-color: #717171;
+  }
+
+.card {
+    border: 1px solid #7270708b;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 30px auto; 
+    font-family: Arial, sans-serif;
+    text-align: center; 
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    position: relative;
+  }
+  
+  
+
+  .content {
+    color: #333;
+  }
+  
+  h1, h2, h3 {
+    color: rgb(19, 46, 126);
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  button {
+    padding: 5px 10px; 
+    font-size: 14px; 
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+  input[type="text"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    text-align: center; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+  }
+
+  
+  #result {
+    font-weight: bold;
+  }
+  input[type="email"],
+  input[type="text"]
+  {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 150px; 
+    height: 28px; 
+  }
+
+  input[type="email"]:focus,
+  input[type="text"]:focus
+  {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  button {
+    background: linear-gradient(to bottom, rgb(52, 199, 89), rgb(41, 171, 82));
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    width: 120px; 
+  }
+  
+  button:hover {
+    background: linear-gradient(to bottom, rgb(35, 155, 69), rgb(28, 133, 63));
+  }
+  
+.about-section {
+  background-color: #f9f9f9;
+  padding: 20px 150px;
+  text-align: center;
+  
+}
+
+.about-section h2 {
+  font-size: 36px;
+  margin-top: 20px;
+  text-align: center;
+ 
+  left: 0;
+  right: 0;
+}
+
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 1;
+margin-top: 70px;
+}
+
+.about-image {
+  flex: 1;
+  margin-top: 50px;
+}
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.skills-section {
+  margin-top: 30px;
+  
+}
+
+.skills-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.skill {
+  margin-bottom: 15px;
+}
+
+.skill i {
+  margin-right: 10px;
+}
+
+.skill-name {
+  font-weight: bold;
+}
+
+.skill-bar {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.skill-level {
+  background-color: #4caf50;
+  border-radius: 5px;
+  height: 100%;
+  width: 0;
+  transition: width 1s ease-in-out;
+}
+.custom-footer {
+
+  color: rgb(46, 13, 196);
+  padding: 10px;
+  opacity: 0.8;
+}
+
+.custom-footer a {
+  color: rgb(32, 17, 192);
+  text-decoration: none;
+}
+
+.footer-button {
+  background-color: lightgrey;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+}
+.custom-footer p {
+  margin-top: 20px;
+  font-size: 14px;
+}

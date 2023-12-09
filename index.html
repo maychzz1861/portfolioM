@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .blackout {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 100; 
+      z-index: -1;
+    }
+
+    .get-start-button {
+  position: absolute;
+  top: 70%;
+  right: 350px; 
+  transform: translate(-50%, -50%);
+  padding: 5px 50px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #333;
+  border-radius: 5px;
+  z-index: 1;
+  
+}
+
+.card {
+ 
+  transform: translateX(350px); 
+  background-color: rgba(114, 100, 100, 0.334); 
+  width: 500px; 
+  height: 310px; 
+  position: fixed;
+}
+
+
+.card .content span {
+  user-select: none;
+  opacity: 0;
+  display: inline-block;
+  animation: appearAnimation 0.5s forwards;
+  font-weight: bold;
+  font-family:serif;
+  color: rgb(236, 227, 227);
+  padding: 1px; 
+  font-size: 34px; 
+  text-shadow: 2px 2px 4px rgba(250, 240, 240, 0.97); 
+}
+
+
+
+@keyframes appearAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.card .content span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.card .content span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+button {
+    background: linear-gradient(to bottom, rgb(41, 50, 171), rgb(0, 195, 255));
+    color: rgb(212, 195, 195);
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    position: fixed;
+    right: 60px;
+    margin-top: 38px;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, rgb(23, 23, 189), rgb(36, 130, 162));
+}
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 5%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  position: fixed;
+}
+
+h4 {
+  margin-top: 3px;
+  position: fixed;
+}
+.card-content {
+  position: relative; 
+  
+}
+
+.video-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1; 
+}
+.line-container {
+  position: fixed; 
+  top: 50%; 
+  width: 160vw;
+}
+
+.horizontal-line {
+  width: 100%;
+  border-top: 1px solid rgba(218, 206, 206, 0.732);
+  position: fixed;
+}
+
+.top-line {
+  top: 0px;
+}
+
+.bottom-line {
+  bottom: 0; 
+}
+.buttons {
+  display: flex;
+}
+
+
+.horizontal-line {
+  position: fixed;
+  position: absolute;
+  width: 300%; 
+  border-top: 1px solid rgba(206, 129, 129, 0.732);
+}
+
+.top-line {
+  transform: translateY(6000%); 
+  position: fixed;
+}
+
+.bottom-line {
+  transform: translateY(-6000%);
+  position: fixed; 
+}
+.fab {
+  position: fixed; 
+  bottom: 20px; 
+}
+
+.fa-facebook-f {
+  left: 50%; 
+  transform: translateX(-370%); 
+}
+
+.fa-instagram {
+  left: 50%; 
+  transform: translateX(-50%); 
+}
+
+.fa-twitter {
+  left: 50%; 
+  transform: translateX(200%); 
+}
+</style>
+</head>
+<body>
+  <div class="logo">
+    <h4>CHAVEEWAN</h4>
+  </div>
+  <div class="line-container">
+    <div class="horizontal-line top-line"></div>
+    <div class="horizontal-line bottom-line"></div>
+  </div>
+
+  <i class="fab fa-facebook-f"></i>
+  <i class="fab fa-instagram"></i>
+  <i class="fab fa-twitter"></i>
+  
+  <div class="card-content">
+    <div class="video-container">
+      <video autoplay muted loop class="blackout">
+        <source src="video/U3.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="content">
+      <span style="font-size: 4em;">H</span><span style="font-size: 4em;">e</span><span style="font-size: 4em;">l</span><span style="font-size: 4em;">l</span><span style="font-size: 4em;">o</span><span style="font-size: 4em;">!</span><br>
+      <span style="margin-top: 30px;">I</span><span>'</span><span>m</span><span>&nbsp;</span><span style="color: blue;">C</span><span style="color: blue;">h</span><span style="color: blue;">a</span><span style="color: blue;">v</span><span style="color: blue;">e</span><span style="color: blue;">e</span><span style="color: blue;">w</span><span style="color: blue;">a</span><span style="color: blue;">n</span><span style="color: blue;">&nbsp;<br>
+      <a href="about.html" style="margin-top: 40px;">
+        <button>SEE PORTFOLIO</button>
+      </a>
+    </div>
+  </div>
+  
+  <script>
+    window.onload = function() {
+      const video = document.querySelector('video');
+      video.style.width = '100%';
+      video.style.height = '100%';
+      video.style.objectFit = 'cover';
+    };
+    
+    const spans = document.querySelectorAll('.card .content span');
+    spans.forEach((span, index) => {
+      span.style.animationDelay = `${index * 0.1}s`;
+    });
+  </script>
+</body>
+</html>

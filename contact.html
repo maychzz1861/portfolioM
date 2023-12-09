@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body,
+    html {
+      height: 100%;
+      line-height: 1.8;
+      background-image: url('picture/gg1.gif');
+      background-size: cover;
+      background-repeat: no-repeat;
+      font-family: "Raleway", sans-serif;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.card {
+  display: flex;
+  flex-direction: row;
+    background-color: rgb(236, 224, 224);
+    font-family: Arial, sans-serif;
+  
+}
+.card-half {
+  width: 50%;
+  padding: 20px;
+}
+
+.card-half img {
+  max-width: 100%;
+  height: auto;
+}
+
+.contact-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact-form {
+    background-color: #d41e1e;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.contact-form h2,
+.contact-form h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    position: fixed;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.to-inline[type="submit"] {
+  background-color: #4285F4; 
+  color: rgb(255, 255, 255); 
+  border: none;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.to-inline[type="reset"] {
+  background-color: #f44336; 
+  color: rgb(255, 255, 255); 
+  border: none;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <div class="navbar">
+    <div class="navbar-logo">
+      <a href="index.html"><i class="fas fa-home"></i></a>
+    </div>
+   
+    <div class="navbar-links">
+      <a href="about.html"><i class="fas fa-info-circle"></i> ABOUT</a>
+      <a href="java.html"><i class="fas fa-users"></i> JAVA</a>
+      <a href="api.html"><i class="fas fa-briefcase"></i> API</a>
+      <a href="photos.html"><i class="fas fa-image"></i> PHOTOS</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> CONTACT</a>
+    </div>
+  </div>
+  <div class="card-container">
+    <div class="card">
+      <!-- Contact form -->
+      <div class="card-half">
+        <img src="picture/3333.jpg" alt="Your Image" style="height: 500px; width: 300px;">
+      </div>
+      <!-- Image -->
+      <div class="card-half">
+        <h2>Contact Me</h2>
+        <label class="let small-label" for="">Your Name</label>
+        <input class="let-e" type="text" name="" id="">
+        <label class="let small-label" for="">Your E-mail</label>
+        <input class="let-e" type="text" name="" id="">
+        <label class="let small-label" for="">Gender</label>
+        
+          
+          <div class="let-s">
+          
+            <select class="let-s" id="Gender" name="Gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div><br>
+          
+                    <h5><Label class="let let small-label" for="input-message">Message</Label></h5>
+                    <textarea style="width: 300px; height: 200x; margin: 5px;" , id="input-message" name="input-message" rows="5"></textarea>
+                    <br>
+          <input type="submit" class="to-inline" value="Submit">
+          <input type="reset" class="to-inline"></input>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+  
+    body,
+    html {
+      height: 100%;
+      line-height: 1.8;
+      background-image: url('picture/gg1.gif'); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      font-family: "Raleway", sans-serif;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .card {
+    border: 1px solid #7270708b;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: rgba(236, 224, 224, 0.717);
+    font-family: Arial, sans-serif;
+    text-align: center; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    position: relative;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="navbar">
+  <div class="navbar-logo">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+  </div>
+  <!-- Right-sided navbar links -->
+  <div class="navbar-links">
+    <a href="about.html"><i class="fas fa-info-circle"></i> ABOUT</a>
+    <a href="java.html"><i class="fas fa-users"></i> JAVA</a>
+    <a href="api.html"><i class="fas fa-briefcase"></i> API</a>
+    <a href="photos.html"><i class="fas fa-image"></i> PHOTOS</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> CONTACT</a>
+  </div>
+</div>
+
+<div class="card">
+    <div class="content">
+        <h1>API</h1>
+      </div>
+        <hr>
+ 
+        <h2>Click to get a Random Image</h2>
+        
+        <br>
+       
+        <img id="randomImage" src="https://source.unsplash.com/random/300x300" alt="Random Image">
+        <br>
+        <button onclick="getRandomImage()">Get Random</button>
+     
+<!-- End page content -->
+   <hr>
+<h2>Click to get a Random Country Name</h2>
+<p id="randomCountry">Country name will appear here</p>
+<button onclick="getRandomCountry()">Get Random </button>
+    <hr>
+      <form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbzf4r9d9prc_VcetWCnKlrlPW7dYUjU8BxN3CEEh0J9NanmVCQeAeptihuZLVzvb5uI6g/exec"
+>
+  <label for="Email">Email</label>
+  <input name="Email" type="email" required>
+
+  <label for="Name">Name</label>
+  <input name="Name" type="text" required>
+
+
+  <button type="submit">Send</button>
+</form>
+<br>
+<iframe width="400" height="300" src="https://docs.google.com/spreadsheets/d/1su1IwB5NXf4gw71kyQo2vb3KMTbthHbpzYQs5YG3m-w/edit#gid=0"></iframe>
+ <hr>      
+<hr>
+
+<h2>Coinbase API Demo</h2>
+<div id="lastUpdateTime"></div>
+<div id="prices"></div>
+<hr>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.4656030558954!2d103.246472!3d16.2440034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf02b541f28931c0!2sMahasarakham%20University!5e0!3m2!1sen!2sth!4v1701823694755!5m2!1sen!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    </div> 
+        <script>
+          //document.getElementById("demo").innerHTML = "Hello World";
+
+          function getRandomImage() {
+  
+      const randomNumber = Math.floor(Math.random() * 100); // สุ่มตัวเลขเพื่อใช้เป็นค่าสำหรับคำค้นหาแบบสุ่ม
+      const randomImageUrl = `https://source.unsplash.com/300x300/?random&${randomNumber}`; // Unsplash API ที่รับพารามิเตอร์สำหรับการกำหนดความกว้างและความสูงของภาพ
+
+      document.getElementById("randomImage").src = randomImageUrl;
+    }
+function getRandomCountry() {
+      fetch("https://restcountries.com/v3.1/all")
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          const randomIndex = Math.floor(Math.random() * data.length);
+          const randomCountry = data[randomIndex].name.common;
+
+          document.getElementById("randomCountry").textContent = `Random Country: ${randomCountry}`;
+        })
+        .catch(function(error) {
+          console.log("Error fetching country data:", error);
+        });
+    }
+
+  function fetchPrices() {
+      var now = new Date();
+      var currentTime = now.toLocaleTimeString();
+
+      fetch('https://api.coinbase.com/v2/exchange-rates?currency=USDT')
+          .then(response => response.json())
+          .then(data => {
+              displayPrices(data);
+              displayLastUpdateTime(currentTime);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+              alert('Error fetching data. Please try again.');
+          });
+  }
+ 
+ 
+ 
+  function displayPrices(data) {
+      var pricesDiv = document.getElementById('prices');
+      var rates = data.data.rates;
+
+      var currencies = ['BTC', 'ETH', 'XRP', 'LTC', 'DOGE', 'BCH', 'BNB', 'LINK', 'XLM'];
+      var pricesHtml = '<p>1 USDT can buy:</p><ul>';
+
+      currencies.forEach(currency => {
+          if (rates[currency]) {
+              pricesHtml += `<li>${currency}: ${rates[currency]}</li>`;
+          } else {
+              pricesHtml += `<li>${currency}: N/A</li>`;
+          }
+      });
+
+      pricesHtml += '</ul>';
+      pricesDiv.innerHTML = pricesHtml;
+  }
+
+  function displayLastUpdateTime(currentTime) {
+      var updateTimeDiv = document.getElementById('lastUpdateTime');
+      updateTimeDiv.innerHTML = `<p>Last Update Time: ${currentTime}</p>`;
+  }
+
+  fetchPrices();
+
+  setInterval(fetchPrices, 3000);
+
+  
+  </script>
+</body>
+</html>
